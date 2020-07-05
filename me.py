@@ -3,9 +3,14 @@ import MetaTrader5 as mt5
 from grad import grad
 from makeTrade import startTrade,stopTrade
 import time
+import sys
+
+if(sys.argv[1]==None):
+    pair = "ZECETH"
+else:
+    pair = sys.argv[1]
 
 timeframe = mt5.TIMEFRAME_M1
-pair = "ZECETH"
 array = 10
 lot = 50.0
 deviation = 20
