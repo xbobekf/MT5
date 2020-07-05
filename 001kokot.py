@@ -33,8 +33,6 @@ request = {
     "volume": lot,
     "type": mt5.ORDER_TYPE_BUY,
     "price": price,
-    "sl": price - 100 * point,
-    "tp": price + 100 * point,
     "deviation": deviation,
     "magic": 234000,
     "comment": "python script open",

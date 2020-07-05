@@ -80,10 +80,10 @@ while(True):
     #(len(orders)==0)
     if(killer>10):
         if((r25g == 'FALLING') and (r7g == 'RISING')):
-            if(ticks[0][2]>rates99de[0]*0.97):
+            if(ticks[0][2]>rates99de[0]*0.98):
                 signal = 'SELL'
         elif((r25g == 'RISING') and (r7g == 'FALLING')):
-            if(ticks[0][1]<rates99de[0]*1.03):
+            if(ticks[0][1]<rates99de[0]*1.02):
                 signal = 'BUY'
     print(signal)
     killer+=1
