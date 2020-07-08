@@ -101,4 +101,4 @@ def stopTrade(symbol, lot, price, position_id, tradeType):
         
                 for tradereq_filed in traderequest_dict:
                     print("       traderequest: {}={}".format(tradereq_filed,traderequest_dict[tradereq_filed]))
-    
+    return result

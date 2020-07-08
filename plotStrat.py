@@ -19,7 +19,7 @@ if(sys.argv[1]==None):
 else:
     pair = sys.argv[1]
 
-timeframe = mt5.TIMEFRAME_M1
+timeframe = mt5.TIMEFRAME_H6
 array = 200
 
 if not mt5.initialize():
@@ -47,18 +47,22 @@ def animate(i):
     fig.autofmt_xdate()
     fig.tight_layout()
 
-    highMA = periodHigh(pair,4,timeframe,array)
-    lowMA = periodLow(pair,4,timeframe,array)
-    rates7de = period(pair,7,timeframe,array)
-    rates25de = period(pair,25,timeframe,array)
-    rates99de = period(pair,99,timeframe,array)
+    highMA = periodHigh(pair,10,timeframe,array)
+    lowMA = periodLow(pair,10,timeframe,array)
+    #rates7de = period(pair,7,timeframe,array)
+    #rates25de = period(pair,25,timeframe,array)
+    #rates99de = period(pair,99,timeframe,array)
 
     ax1.plot(lowMA)
     ax1.plot(highMA)
-    ax1.plot(rates99de)
-    ax1.plot(rates25de)
-    ax1.plot(rates7de)
+    #ax1.plot(rates99de)
+    #ax1.plot(rates25de)
+    #ax1.plot(rates7de)
 
+    ask = mt5.symbol_info_tick(pair).ask #BUY
+    bid = mt5.symbol_info_tick(pair).bid #SELL
+    print('BUY: ',(ask-lowMA[-1])/(highMA[-1]-lowMA[-1]))
+    print('sell: ',(bid-lowMA[-1])/(highMA[-1]-lowMA[-1]))
 
 ani = animation.FuncAnimation(fig, animate, interval=1000)
 plt.show()
