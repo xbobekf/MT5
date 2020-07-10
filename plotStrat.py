@@ -19,7 +19,7 @@ if(sys.argv[1]==None):
 else:
     pair = sys.argv[1]
 
-timeframe = mt5.TIMEFRAME_H6
+timeframe = mt5.TIMEFRAME_H2
 array = 200
 
 if not mt5.initialize():
